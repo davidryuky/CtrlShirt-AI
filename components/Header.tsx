@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount, onCartClick }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
-            <a href="#" className="text-3xl font-heading text-white group" aria-label="CtrlShirt Home Page">
+            <a href="#" className="text-2xl sm:text-3xl font-heading text-white group" aria-label="CtrlShirt Home Page">
               Ctrl<span className="text-violet-500 group-hover:text-amber-400 transition-colors duration-300">Shirt</span>
             </a>
           </div>
@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount, onCartClick }) => {
             ))}
           </nav>
           
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-3 sm:space-x-4">
              <div className="hidden sm:flex relative">
                 <input type="text" placeholder="Procurar…" className="input-pixel w-56 text-lg focus:w-64 transition-all duration-300"/>
                 <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-500" />
