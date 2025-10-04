@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ctrl Shirt - Sua Loja Geek</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <style type="text/tailwindcss">
+      @layer base {
+        h1, h2, h3, h4, h5, h6, .font-heading {
+          font-family: 'Press Start 2P', cursive;
+        }
+        body, input, textarea, button, select {
+          font-family: 'VT323', monospace;
+          font-size: 1.125rem; /* Aumenta a legibilidade da fonte pixelada */
+        }
+        body {
+          background-color: #18181b; /* zinc-900 */
+          background-image:
+            linear-gradient(rgba(24, 24, 27, 0.97), rgba(24, 24, 27, 0.97)),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2327272a' fill-opacity='0.6'%3E%3Cpath d='M0 0h2v2H0V0zm4 4h2v2H4V4zm4 4h2v2H8V8zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zM2 4h2v2H2V4zm4 4h2v2H6V8zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zM0 8h2v2H0V8zm4 4h2v2H4v-2zm4 4h2v2H8v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zM2 12h2v2H2v-2zm4 4h2v2H6v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zm4 4h2v2h-2v-2zM0 16h2v2H0v-2zm4 4h2v2H4v-2zm4 4h2v2H8v-2zm4 4h2v2h-2v-2zM2 20h2v2H2v-2zm4 4h2v2H6v-2zm4 4h2v2h-2v-2zM0 24h2v2H0v-2zm4 4h2v2H4v-2zM2 28h2v2H2v-2zm20 0h2v2h-2v-2zM20 2h2v2h-2V2zm-4 4h2v2h-2V6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+      }
+      @layer utilities {
+        .text-shadow {
+          text-shadow: 2px 2px 0px #18181b, 4px 4px 0px rgba(0,0,0,0.2);
+        }
+        .btn-pixel {
+          @apply inline-flex items-center justify-center px-6 py-3 text-base bg-violet-600 text-white border-b-4 border-violet-800 rounded-md hover:bg-violet-500 hover:border-violet-700 transition-all duration-150 transform active:translate-y-1 active:border-b-2;
+        }
+        .input-pixel {
+          @apply w-full px-4 py-3 bg-zinc-800 border-2 border-zinc-600 text-zinc-200 placeholder-zinc-500 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500 caret-violet-500;
+        }
+        .border-pixel {
+           @apply border-4 border-zinc-700 bg-zinc-800/80 p-1 rounded-md transition-all;
+        }
+        .border-pixel-hover:hover {
+          @apply border-violet-500;
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out forwards;
+          opacity: 0;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-zinc-900 text-zinc-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
