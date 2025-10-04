@@ -8,6 +8,7 @@ import ShoppingCart from './components/ShoppingCart';
 import FeaturedCategories from './components/FeaturedCategories';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import AddToCartToast from './components/AddToCartToast';
 
 const MOCK_PRODUCTS: Product[] = [
     { id: 1, name: 'Camiseta "Hello World"', description: 'A clássica saudação de todo programador, agora em 100% algodão premium. Perfeita para quebrar o gelo em qualquer evento de tech.', price: 79.90, category: 'Código', sizes: ['P', 'M', 'G', 'GG'], rating: 4.8, reviewCount: 102 },
@@ -25,6 +26,8 @@ const App: React.FC = () => {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
     const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
+
 
     useEffect(() => {
         // Simula o carregamento dos produtos
@@ -56,7 +59,7 @@ const App: React.FC = () => {
             }
             return [...prevItems, itemToAdd];
         });
-        setIsCartOpen(true);
+        setToastMessage(itemToAdd.name);
     };
     
     const handleUpdateQuantity = (productId: number, size: string, newQuantity: number) => {
@@ -104,6 +107,10 @@ const App: React.FC = () => {
                 />
             </main>
             <Footer />
+            <AddToCartToast 
+                productName={toastMessage}
+                onClose={() => setToastMessage(null)}
+            />
         </div>
     );
 };
