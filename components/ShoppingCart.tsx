@@ -11,6 +11,21 @@ interface ShoppingCartProps {
   onRemoveItem: (productId: number, size: string) => void;
 }
 
+const gradientClasses = [
+    'from-violet-500 to-fuchsia-500',
+    'from-green-400 to-teal-400',
+    'from-red-500 to-orange-500',
+    'from-sky-400 to-cyan-400',
+    'from-amber-400 to-yellow-500',
+    'from-lime-400 to-emerald-500',
+    'from-rose-500 to-pink-500',
+    'from-indigo-500 to-purple-600',
+];
+  
+const getGradientById = (id: number) => {
+    return gradientClasses[id % gradientClasses.length];
+}
+
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem }) => {
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -48,7 +63,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose, cartItems,
                 {cartItems.map(item => (
                   <li key={`${item.id}-${item.selectedSize}`} className="flex py-6">
                     <div className="h-28 w-28 flex-shrink-0 overflow-hidden rounded-md border-2 border-zinc-700">
-                      <img src={item.imageUrl} alt={item.name} className="h-full w-full object-cover object-center" />
+                      <div className={`h-full w-full bg-gradient-to-br ${getGradientById(item.id)}`} />
                     </div>
                     <div className="ml-4 flex flex-1 flex-col">
                       <div>

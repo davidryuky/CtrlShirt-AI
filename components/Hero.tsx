@@ -4,11 +4,7 @@ const Hero: React.FC = () => {
   return (
     <div className="relative bg-zinc-900 overflow-hidden border-b-4 border-zinc-800">
       <div className="absolute inset-0">
-        <img
-          className="w-full h-full object-cover object-center opacity-20"
-          src="https://picsum.photos/seed/gamerdesk/1920/1080"
-          alt="Mesa de um gamer com vários itens da cultura pop"
-        />
+        <div className="w-full h-full bg-gradient-to-br from-violet-900 via-zinc-900 to-zinc-900 opacity-40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-transparent to-zinc-900/50"></div>
       </div>

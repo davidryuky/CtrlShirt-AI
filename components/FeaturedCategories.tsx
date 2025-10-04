@@ -1,10 +1,17 @@
 import React from 'react';
 
 const categories = [
-  { name: 'GAMES', imageUrl: 'https://picsum.photos/400/500?random=10' },
-  { name: 'SÉRIES & FILMES', imageUrl: 'https://picsum.photos/400/500?random=11' },
-  { name: 'CÓDIGO', imageUrl: 'https://picsum.photos/400/500?random=12' },
-  { name: 'ANIMES', imageUrl: 'https://picsum.photos/400/500?random=13' },
+  { name: 'GAMES' },
+  { name: 'SÉRIES & FILMES' },
+  { name: 'CÓDIGO' },
+  { name: 'ANIMES' },
+];
+
+const categoryGradients = [
+    'from-red-500 to-orange-500', // GAMES
+    'from-sky-400 to-cyan-400',   // SÉRIES & FILMES
+    'from-green-400 to-teal-400', // CÓDIGO
+    'from-fuchsia-400 to-purple-600', // ANIMES
 ];
 
 const FeaturedCategories: React.FC = () => {
@@ -15,12 +22,10 @@ const FeaturedCategories: React.FC = () => {
           Navegue por Categorias
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {categories.map((category) => (
-            <div key={category.name} className="group relative border-pixel border-pixel-hover rounded-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-violet-800/30">
-              <img
-                src={category.imageUrl}
-                alt={category.name}
-                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+          {categories.map((category, index) => (
+            <div key={category.name} className="group relative aspect-[4/5] border-pixel border-pixel-hover rounded-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-violet-800/30">
+              <div
+                className={`w-full h-full bg-gradient-to-br ${categoryGradients[index]} group-hover:scale-110 transition-transform duration-500`}
               />
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300"></div>
               <div className="absolute inset-0 flex items-end justify-center p-6">

@@ -17,6 +17,21 @@ const categoryColorMap: { [key: string]: string } = {
   'Animes': 'text-fuchsia-400',
 };
 
+const gradientClasses = [
+    'from-violet-500 to-fuchsia-500',
+    'from-green-400 to-teal-400',
+    'from-red-500 to-orange-500',
+    'from-sky-400 to-cyan-400',
+    'from-amber-400 to-yellow-500',
+    'from-lime-400 to-emerald-500',
+    'from-rose-500 to-pink-500',
+    'from-indigo-500 to-purple-600',
+];
+  
+const getGradientById = (id: number) => {
+    return gradientClasses[id % gradientClasses.length];
+}
+
 const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) => {
   const categoryColor = categoryColorMap[product.category] || 'text-zinc-400';
   
@@ -25,11 +40,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) =>
       onClick={() => onProductClick(product)}
       className="group relative border-pixel border-pixel-hover rounded-lg overflow-hidden shadow-lg hover:shadow-violet-800/30 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col"
     >
-      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden">
-        <img
-          src={product.imageUrl}
-          alt={product.name}
-          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+      <div className="aspect-square w-full overflow-hidden">
+        <div
+          className={`w-full h-full bg-gradient-to-br ${getGradientById(product.id)} group-hover:scale-110 transition-transform duration-500`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>

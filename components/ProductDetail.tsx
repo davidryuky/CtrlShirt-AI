@@ -8,6 +8,21 @@ interface ProductDetailProps {
   onAddToCart: (item: CartItem) => void;
 }
 
+const gradientClasses = [
+    'from-violet-500 to-fuchsia-500',
+    'from-green-400 to-teal-400',
+    'from-red-500 to-orange-500',
+    'from-sky-400 to-cyan-400',
+    'from-amber-400 to-yellow-500',
+    'from-lime-400 to-emerald-500',
+    'from-rose-500 to-pink-500',
+    'from-indigo-500 to-purple-600',
+];
+  
+const getGradientById = (id: number) => {
+    return gradientClasses[id % gradientClasses.length];
+}
+
 const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick, onAddToCart }) => {
   const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0]);
   const [quantity, setQuantity] = useState<number>(1);
@@ -31,11 +46,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackClick, onA
       </button>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="border-pixel rounded-lg overflow-hidden">
-          <img
-            src={product.imageUrl}
-            alt={product.name}
-            className="w-full h-full object-cover object-center"
+        <div className="border-pixel rounded-lg overflow-hidden aspect-square">
+          <div
+            className={`w-full h-full bg-gradient-to-br ${getGradientById(product.id)}`}
           />
         </div>
 
