@@ -2,12 +2,12 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative bg-zinc-900 overflow-hidden border-b-4 border-zinc-800">
-      <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-violet-900 via-zinc-900 to-zinc-900 opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-transparent to-zinc-900/50"></div>
-      </div>
+    <div 
+      className="relative overflow-hidden border-b-4 border-zinc-800 bg-cover bg-center"
+      style={{ backgroundImage: "url('https://i.postimg.cc/D70cRKPb/bg.png')" }}
+    >
+      <div className="absolute inset-0 bg-zinc-900/70"></div> {/* Overlay para garantir a legibilidade do texto */}
+      
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-48 lg:py-56 text-center">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight text-shadow animate-fade-in-up leading-relaxed">
           Sua Quest Diária:
